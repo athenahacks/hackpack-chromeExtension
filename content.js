@@ -1,6 +1,7 @@
+//gets all element in document
 var elements = document.getElementsByTagName('*');
 
-
+//iterates through all elements
 for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
 
@@ -8,15 +9,12 @@ for (var i = 0; i < elements.length; i++) {
         var node = element.childNodes[j];
 
         if (node.nodeType === 3) {
+
+	    //text of variable
             var text = node.nodeValue;
 	    var replacedText = text;
-	    if (text.substring(0, 1) == "$") {
-		var number = Number(text.replace(/[^0-9\.]+/g,""));
-		number = (number/240).toFixed(3);
-		if (number != 0) {
-			replacedText = number + " Surgeries";
-		}
-	    }
+	   
+	    //insert code here to replace replacedText with new text
 
             if (replacedText !== text) {
                 element.replaceChild(document.createTextNode(replacedText), node);
@@ -24,3 +22,8 @@ for (var i = 0; i < elements.length; i++) {
         }
     }
 }
+
+//to load chrome extension
+//go to extensions section
+//select developer mode
+//and load unpacked extension!
